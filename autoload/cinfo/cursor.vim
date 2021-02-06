@@ -1,29 +1,29 @@
 " Show cursor info in popup
 function! cinfo#cursor#show()
-  # get cursor line text
-  const text = getline('.')
-  const text_before = strpart(text, 0, col('.') - 1)
-  const text_after = strpart(text, col('.') - 1)
-  const char = strcharpart(text_after, 0, 1)
+  " get cursor line text
+  let l:text = getline('.')
+  let l:text_before = strpart(l:text, 0, col('.') - 1)
+  let l:text_after = strpart(l:text, col('.') - 1)
+  let l:char = strcharpart(l:text_after, 0, 1)
 
-  # get cursor position informations
-  const cur_row_idx = line('.')
-  const cur_row_len = strchars(text)
-  const cur_col_char_idx = strchars(text_before) + 1
+  " get cursor position informations
+  let l:cur_row_idx = line('.')
+  let l:cur_row_len = strchars(l:text)
+  let l:cur_col_char_idx = strchars(l:text_before) + 1
 
-  # get charcode informations
-  const charcode = char2nr(char)
-  const charcode_utf8 = trim(execute('normal g8'))
+  " get charcode informations
+  let l:charcode = char2nr(l:char)
+  let l:charcode_utf8 = trim(execute('normal g8'))
 
-  # get buffer size
-  const buf_lines = line('$')
-  const buf_counts = wordcount()
+  " get buffer size
+  let l:buf_lines = line('$')
+  let l:buf_counts = wordcount()
 
-  # format output
-  const output = [
-    'Line: ' .. cur_row_idx .. ' of ' .. buf_lines .. '; Col: ' .. cur_col_char_idx .. ' of ' .. cur_row_len,
-    'Word: ' .. buf_counts['cursor_words'] .. ' of ' .. buf_counts['words'] .. '; Char: ' .. buf_counts['cursor_chars'] .. ' of ' .. buf_counts['chars'] .. '; Byte: ' .. buf_counts['cursor_bytes'] .. ' of ' .. buf_counts['bytes'],
+  " format output
+  let l:output = [
+    'Line: ' .. l:cur_row_idx .. ' of ' .. l:buf_lines .. '; Col: ' .. l:cur_col_char_idx .. ' of ' .. l:cur_row_len,
+    'Word: ' .. l:buf_counts['cursor_words'] .. ' of ' .. l:buf_counts['words'] .. '; Char: ' .. l:buf_counts['cursor_chars'] .. ' of ' .. l:buf_counts['chars'] .. '; Byte: ' .. l:buf_counts['cursor_bytes'] .. ' of ' .. l:buf_counts['bytes'],
     'Code: ' .. printf('"%s" {(%d)10 (%X)16 (%s)utf8}', char, charcode, charcode, charcode_utf8),
   ]
-  cinfo#popup#show(output)
+  call cinfo#popup#show(l:output)
 endfunction

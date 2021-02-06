@@ -1,11 +1,11 @@
 " Show buffer info in popup 
 function! cinfo#buffer#show()
-  # format output
-  const output = [
+  " format output
+  let l:output = [
     'File type:   ' .. &filetype,
     'Encoding:    ' .. &encoding,
     'File format: ' .. &fileformat,
     'Syntax:      ' .. &syntax,
   ]
-  cinfo#popup#show(output)
+  return cinfo#popup#show(l:output)
 endfunction
