@@ -1,3 +1,7 @@
+if !hlexists('Cinfo')
+  highlight link Cinfo Search
+endif
+
 command! CursorInfo call cinfo#cursor#show()
 nnoremap <silent> <Plug>(cinfo-show-cursor) :<C-u>CursorInfo<CR>
 
