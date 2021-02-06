@@ -21,9 +21,9 @@ function! cinfo#cursor#show()
 
   " format output
   let l:output = [
-    'Line: ' .. l:cur_row_idx .. ' of ' .. l:buf_lines .. '; Col: ' .. l:cur_col_char_idx .. ' of ' .. l:cur_row_len,
-    'Word: ' .. l:buf_counts['cursor_words'] .. ' of ' .. l:buf_counts['words'] .. '; Char: ' .. l:buf_counts['cursor_chars'] .. ' of ' .. l:buf_counts['chars'] .. '; Byte: ' .. l:buf_counts['cursor_bytes'] .. ' of ' .. l:buf_counts['bytes'],
-    'Code: ' .. printf('"%s" {(%d)10 (%X)16 (%s)utf8}', l:char, l:charcode, l:charcode, l:charcode_utf8),
-  ]
+        \   'Line: ' .. l:cur_row_idx .. ' of ' .. l:buf_lines .. '; Col: ' .. l:cur_col_char_idx .. ' of ' .. l:cur_row_len,
+        \   'Word: ' .. l:buf_counts['cursor_words'] .. ' of ' .. l:buf_counts['words'] .. '; Char: ' .. l:buf_counts['cursor_chars'] .. ' of ' .. l:buf_counts['chars'] .. '; Byte: ' .. l:buf_counts['cursor_bytes'] .. ' of ' .. l:buf_counts['bytes'],
+        \   'Code: ' .. printf('"%s" {(%d)10 (%X)16 (%s)utf8}', l:char, l:charcode, l:charcode, l:charcode_utf8),
+        \ ]
   call cinfo#popup#show(l:output)
 endfunction
