@@ -24,7 +24,7 @@ function! cinfo#highlight#show()
   " format output
   let l:output = s:get_highlight_info(v:false) + s:get_highlight_info(v:true)
   if len(l:output) == 0
-    l:output = ['<No highlight>']
+    let l:output = ['<No highlight>']
   endif
 
   call cinfo#popup#show(l:output)
