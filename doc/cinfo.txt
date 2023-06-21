@@ -1,0 +1,66 @@
+cinfo.txt           Popup context (cursor or buffer) information
+
+Author: kyoh86<me@kyoh86.dev>
+License: MIT license
+
+
+==============================================================================
+CONTENTS                                                     *cinfo-contents*
+
+Introduction                               |cinfo-introduction|
+Function                                       |cinfo-function|
+Keymap                                           |cinfo-keymap|
+
+
+==============================================================================
+INTRODUCTION                                             *cinfo-introduction*
+
+*cinfo* is a plugin that provides a commands to show contextual information
+around a cursor.
+
+
+==============================================================================
+Function                                                     *cinfo-function*
+
+                                     *:CursorInfo* *cinfo-command-CursorInfo*
+                            *<Plug>(cinfo-show-cursor)* *cinfo#cursor#show()*
+:CursorInfo
+<Plug>(cinfo-show-buffer)
+cinfo#cursor#show()
+		It says the location of the cursor, and character profile
+		under the cursor like below:
+
+>
+		Line: 5 of 12; Col: 10 of 44
+		Word: 9 of 31; Char: 69 of 403; Byte: 69 of 403
+		Code: "C" {(67)10 (43)16 (43)utf8}
+<
+
+                                     *:BufferInfo* *cinfo-command-BufferInfo*
+                            *<Plug>(cinfo-show-buffer)* *cinfo#buffer#show()*
+:BufferInfo
+<Plug>(cinfo-show-buffer)
+cinfo#buffer#show()
+		It says the profile of the file in the buffer like below:
+
+>
+		File type:	vim
+		Encoding:	utf-8
+		File format:	unix
+		Syntax:		vim
+<
+
+                               *:HighlightInfo* *cinfo-command-HighlightInfo*
+                      *<Plug>(cinfo-show-highlight)* *cinfo#highlight#show()*
+:HighlightInfo
+<Plug>(cinfo-show-highlight)
+cinfo#highlight#show()
+		It says highlight profile under the cursor like below:
+
+>
+		vimMap		xxx links to vimCommand
+		    Last set from /usr/local/share/...
+<
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:noet:
